@@ -54,6 +54,7 @@ stop_review:
     - ssh ubuntu@docker.miquido.net "rm -rf /docker/gitlab-dynamic-environments/nginx-config/$CI_PROJECT_NAME-$CI_COMMIT_REF_SLUG.conf"
     - docker context use miquido-internal
     - docker exec gitlab-dynamic-env_nginx_1 /etc/init.d/nginx reload
+  dependencies: []
   environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
